@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ubl.cfg.fx.Controller">
+   <children>
+      <MenuBar prefHeight="39.0" prefWidth="804.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="selectApk" mnemonicParsing="false" onAction="#selectApk" text="Select APK" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Theme">
+            <items>
+                  <RadioMenuItem fx:id="darkTheme" mnemonicParsing="false" onAction="#setTheme" text="Dark" />
+                  <RadioMenuItem fx:id="lightTheme" mnemonicParsing="false" onAction="#setTheme" selected="true" text="Light">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="theme" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.37861915367483295">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="427.0">
+               <children>
+                  <Button fx:id="btGenerateCfg" alignment="CENTER" layoutX="31.0" layoutY="101.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="273.0" text="Generate CFG" textAlignment="CENTER" />
+                  <Button fx:id="btCreate" alignment="CENTER" layoutX="31.0" layoutY="241.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="128.0" text="Create" textAlignment="CENTER" />
+                  <Label fx:id="label" layoutX="31.0" layoutY="36.0" />
+                  <ComboBox fx:id="cbDataset" editable="true" layoutX="31.0" layoutY="188.0" prefHeight="39.0" prefWidth="273.0" promptText="Select Dataset" />
+                  <Button fx:id="btShow" alignment="CENTER" disable="true" layoutX="170.0" layoutY="241.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="134.0" text="Show" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="60.0">
+               <children>
+                  <TextArea fx:id="txtOutput" layoutX="15.0" layoutY="36.0" prefHeight="505.0" prefWidth="523.0" />
+                  <Label layoutX="25.0" layoutY="6.0" text="Console Coutput" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
