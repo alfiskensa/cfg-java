@@ -155,7 +155,8 @@ public class PermissionFlowGraph {
 	
 	public String printGraph() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("There are %d nodes in the permission flow graph\n", nodes.size()));
+		Long edges = outgoingEdges.entrySet().stream().mapToLong(p -> p.getValue().stream().mapToLong(l -> l.longValue()).sum()).sum();
+		sb.append(String.format("There are %d nodes and %d edges in the control flow graph\n", nodes.size(), edges));
 		return sb.toString();
 	}
     

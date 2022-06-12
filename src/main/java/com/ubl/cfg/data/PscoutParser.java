@@ -12,7 +12,8 @@ public class PscoutParser {
     private static String jsonFileName = System.getProperty("user.dir") +
             "/pscout_results/permissionMappings.json";
 
-    private static Map<String, Set<Permission>> permissionMappings = getOrCreatePermissionMappings();
+//    private static Map<String, Set<Permission>> permissionMappings = getOrCreatePermissionMappings();
+    private static Map<String, Set<Permission>> permissionMappings = new HashMap<String, Set<Permission>>();
 
     private static Map<String, Set<Permission>> getOrCreatePermissionMappings() {
         BufferedReader in;

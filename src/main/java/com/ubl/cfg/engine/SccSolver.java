@@ -65,7 +65,7 @@ public class SccSolver {
 				entrys.add(method);
 			}
 		}
-		System.out.println(entrys.size());
+		
 		for (SootMethod method : entrys) {
 			currentMethod = method;
 			unitDirectedGraph = infoflowCFG.getOrCreateUnitGraph(currentMethod);
@@ -129,6 +129,14 @@ public class SccSolver {
 			}
 		}
 		return succs;
+	}
+	
+	public static PermissionFlowGraph generateCfg(String apkFileLocation) {
+		PermissionFlow analyzer = new PermissionFlow();
+		analyzer.initCfg(apkFileLocation);
+		SccSolver solver = new SccSolver();
+		PermissionFlowGraph graph = solver.getSCCGraph();
+		return graph;
 	}
 
 //	public static void main(String[] args) {

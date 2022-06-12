@@ -45,4 +45,17 @@ public class PermissionFlow {
 //        PermissionFlow analyzer = new PermissionFlow();
 //        analyzer.initCallGraph("app-debug.apk");
 //    }
+    
+    public void initCfg(String apkFileLocation) {
+    	InfoflowAndroidConfiguration config = new InfoflowAndroidConfiguration();
+		config.getAnalysisFileConfig().setTargetAPKFile(apkFileLocation);
+		config.getAnalysisFileConfig().setAndroidPlatformDir(androidJar);
+		
+		SetupApplication analyzer = new SetupApplication(config);
+
+        analyzer.constructCallgraph();
+        infoflowCFG = new InfoflowCFG();
+        callGraph = Scene.v().getCallGraph();
+        callGraphInitialsed = true;
+    }
 }
